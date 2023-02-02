@@ -7,7 +7,7 @@ import java.awt.event.*;
 import java.sql.SQLException;
 import java.text.ParseException;
 
-public class BaseView extends JDialog {
+public class BaseView extends JDialog implements VeiwInterface{
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
@@ -22,7 +22,7 @@ public class BaseView extends JDialog {
         this.jLabel.setText( "<html>" + text.replaceAll("<","&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br/>") + "</html>");
     }
 
-    public void addComboBox(String text){
+    public void addItem(String text){
         this.labelComboBox.addItem(text);
     }
 
@@ -75,6 +75,12 @@ public class BaseView extends JDialog {
     private void onCancel() {
         // add your code here if necessary
         dispose();
+    }
+
+    public void showFinalAction(){
+        this.pack();
+        this.setVisible(true);
+        System.exit(0);
     }
 
 }

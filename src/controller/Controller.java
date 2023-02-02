@@ -4,16 +4,16 @@ import model.Person;
 import model.PhoneNumber;
 import model.SQLlite_Handler;
 import view.BaseView;
+import view.VeiwInterface;
 
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.HashMap;
 import java.util.List;
 
 public class Controller {
 
 
-    private BaseView dialog ;
+    private VeiwInterface dialog;
 
     public void  addNumber(String name, String number, String description) throws SQLException, ParseException {
 
@@ -60,12 +60,9 @@ public class Controller {
         String text = "";
 
         for ( Person person: persons) {
-            dialog.addComboBox(person.toString());
+            dialog.addItem(person.toString());
         }
 
-
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
+        dialog.showFinalAction();
     }
 }
